@@ -6,9 +6,9 @@ function Game() {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
   const [stats, setStats] = useState({ X: 0, O: 0, draws: 0 });
-  const [firstPlayerIsX, setFirstPlayerIsX] = useState(Math.random() < 0.5); // Випадково визначаємо першого гравця
+  const [firstPlayerIsX, setFirstPlayerIsX] = useState(Math.random() < 0.6); 
 
-  // Визначаємо, чи ходить "X", враховуючи першого гравця
+
   const xIsNext = firstPlayerIsX ? currentMove % 2 === 0 : currentMove % 2 !== 0;
   const currentSquares = history[currentMove];
   const winner = calculateWinner(currentSquares);
@@ -45,7 +45,7 @@ function Game() {
   function resetGame() {
     setHistory([Array(9).fill(null)]);
     setCurrentMove(0);
-    setFirstPlayerIsX(Math.random() < 0.5); // Випадково обираємо першого гравця при новій грі
+    setFirstPlayerIsX(Math.random() < 0.5); 
   }
 
   const moves = history.map((squares, move) => {
